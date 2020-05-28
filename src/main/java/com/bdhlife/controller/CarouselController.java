@@ -1,5 +1,6 @@
 package com.bdhlife.controller;
 
+import com.bdhlife.entity.Carousel;
 import com.bdhlife.service.CarouselService;
 import com.bdhlife.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 
 
 @RestController
@@ -29,8 +31,9 @@ public class CarouselController {
     }
     //查询图片列表
     @RequestMapping("findCarouselList")
-    public Result findCarouselList(){
-        return null;
+    public List<Carousel> findCarouselList(){
+        List<Carousel>list=carouselService.findCarouselList();
+        return list;
     }
 
 
