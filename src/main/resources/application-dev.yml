@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: zhanghui
+    password: zhanghui
+    url: jdbc:mysql://yq.bdhlife.com:3306/qianggou?useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.bdhlife.entity
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug

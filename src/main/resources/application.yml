@@ -1,0 +1,4 @@
+#dev表示使用开发环境配置文件
+spring:
+  profiles:
+    active: dev
