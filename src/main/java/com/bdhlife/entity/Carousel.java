@@ -1,7 +1,13 @@
 package com.bdhlife.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+
+import java.io.Serializable;
 import java.util.Date;
 
+@Data
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 public class Carousel {
     private Integer id;//轮播图表id
     private String url;//地址

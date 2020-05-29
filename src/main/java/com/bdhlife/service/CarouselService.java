@@ -8,4 +8,6 @@ public interface CarouselService {
 
     List<Carousel> findCarouselList();
 
+    int delCarousel(Integer id);
+
 }

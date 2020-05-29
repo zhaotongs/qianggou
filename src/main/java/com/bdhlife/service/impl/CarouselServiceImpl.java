@@ -20,4 +20,9 @@ public class CarouselServiceImpl implements CarouselService {
     public List<Carousel> findCarouselList() {
         return carouselMapper.findCarouselList();
     }
+
+    @Override
+    public int delCarousel(Integer id) {
+        return 0;
+    }
 }
