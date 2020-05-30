@@ -1,6 +1,7 @@
 package com.bdhlife.controller;
 
 import com.bdhlife.entity.Goods;
+import com.bdhlife.entity.KuCun;
 import com.bdhlife.entity.Picture;
 import com.bdhlife.service.GoodsService;
 import com.bdhlife.service.PictureService;
@@ -26,10 +27,17 @@ public class GoodsController {
         return Result.ok(list);
     }
     @RequestMapping("/addKuCun")
-    public Result addKuCun(Integer skuId,String name,String images, String shangpId,String size,
+    public Result addKuCun(String name,String images, String shangpId,String size,
                            String color,String stock,String price ) {
-        goodsService.addKuCun(skuId,name,images,shangpId,size,color,stock,price);
+        goodsService.addKuCun(name,images,shangpId,size,color,stock,price);
         return Result.ok();
+    }
+
+    @RequestMapping("/queryKuCun")
+    public Result queryKuCunList(String color, String size, String skuId) {
+        List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId);
+        return Result.build(200, "success", kuCuns);
+
     }
 
 }

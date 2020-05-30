@@ -22,10 +22,37 @@
     <insert id="addKuCun" >
         insert into tb_goods_kucun
         (
-        name,images,shangp_id,stock,size,color
+        name,images,shangp_id,stock,size,color,price
         )VALUES (
-        #{name},#{images},#{shangpId},#{stock},#{size},#{color}
+        #{name},#{images},#{shangpId},#{stock},#{size},#{color},#{price}
         )
     </insert>
+    
+    <select id="queryKuCunList" resultType="com.bdhlife.entity.KuCun">
+        select
+          sku_id as skuId,
+          name as name ,
+          images as images,
+          shangp_id as shangpId,
+          price as price ,
+
+          stock as stock,
+          size as size ,
+          color as color
+          from
+            tb_goods_kucun
+            <where>
+                <if test="color != null and color != '' ">
+                    and color = #{color}
+                </if>
+                <if test="size != null and size != '' ">
+                    and size = #{size}
+                </if>
+                <if test="skuId != null and skuId != '' ">
+                    and sku_id = #{skuId}
+                </if>
+            </where>
+
+    </select>
 
 </mapper>
