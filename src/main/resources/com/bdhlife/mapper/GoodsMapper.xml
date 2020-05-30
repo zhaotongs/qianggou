@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bdhlife.mapper.GoodsMapper">
+
+
+    <select id="findGoodsList" resultType="com.bdhlife.entity.Goods">
+        select
+        spu_id as spuId,
+        name as name,
+        title as title,
+        state as state,
+        description as description
+        from
+        tb_goods_shangp
+        <where>
+            <if test="goodsId != null and goodsId != '' ">
+                and spu_id = #{goodsId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addKuCun" >
+        insert into tb_goods_kucun
+        (
+        sku_id,name,images,shangpId,stock,size,color
+        )VALUES (
+        #{skuId},#{name},#{images},#{shangpId},#{stock},#{size},#{color}
+        )
+    </insert>
+
+</mapper>
