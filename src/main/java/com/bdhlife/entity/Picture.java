@@ -8,11 +8,11 @@ import java.util.Date;
 
 @Data
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
-public class Carousel {
-    private Integer id;//轮播图表id
+public class Picture {
+    private Integer pid;//轮播图表id
     private String url;//地址
-    private String name;//名称
-    private Date createTime;//创建时间
     private Integer goodsId;//商品id
+    private Integer position;//位置类型(1顶部,2底部)
+    private Integer sort;//排序(大数在上)
 
 }
