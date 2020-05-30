@@ -26,9 +26,9 @@ public class GoodsController {
         return Result.ok(list);
     }
     @RequestMapping("/addKuCun")
-    public Result addKuCun(String name,String images, String shangpId,String size,
-                           String color,String stock) {
-        goodsService.addKuCun(name,images,shangpId,size,color,stock);
+    public Result addKuCun(Integer skuId,String name,String images, String shangpId,String size,
+                           String color,String stock,String price ) {
+        goodsService.addKuCun(skuId,name,images,shangpId,size,color,stock,price);
         return Result.ok();
     }
 

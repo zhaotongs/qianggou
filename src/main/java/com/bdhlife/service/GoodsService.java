@@ -8,6 +8,6 @@ public interface GoodsService {
 
     List<Goods> findGoodsList(Integer goodsId);
 
-    int addKuCun( String name, String images, String shangpId, String size,
-                 String color, String stock);
+    int addKuCun(Integer skuId, String name, String images, String shangpId, String size,
+                 String color, String stock, String price);
 }

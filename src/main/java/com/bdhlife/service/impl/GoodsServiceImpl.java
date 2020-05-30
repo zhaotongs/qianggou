@@ -22,8 +22,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public int addKuCun( String name, String images, String shangpId, String size, String color,
-                        String stock) {
-        return pictureMapper.addKuCun(name,images,shangpId,size,color,stock);
+    public int addKuCun(Integer skuId, String name, String images, String shangpId, String size, String color,
+                        String stock, String price) {
+        return pictureMapper.addKuCun(skuId,name,images,shangpId,size,color,stock,price);
     }
 }

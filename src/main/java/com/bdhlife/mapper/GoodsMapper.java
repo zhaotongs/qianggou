@@ -13,7 +13,7 @@ public interface GoodsMapper {
 
     List<Goods> findGoodsList(Integer goodsId);
 
-    int addKuCun(@Param("name")String name,
-                 @Param("images")String images, @Param("shangpId")String shangpId, @Param("size")String size,
-                 @Param("color")String color, @Param("stock")String stock);
+    int addKuCun(@Param("skuId") Integer skuId, @Param("name") String name,
+                 @Param("images") String images, @Param("shangpId") String shangpId, @Param("size") String size,
+                 @Param("color") String color, @Param("stock") String stock, @Param("price")String price);
 }
