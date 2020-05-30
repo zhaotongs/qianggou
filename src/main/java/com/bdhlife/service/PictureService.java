@@ -8,7 +8,7 @@ public interface PictureService {
 
     int addPicture(Integer goodsId,Integer position,Integer sort,String url);
 
-    int delPicture(Integer id);
+    int delPicture(Integer pid);
 
     List<Picture> findPictureList(Integer goodsId);
 

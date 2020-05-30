@@ -6,45 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b56a1603-b7b1-4719-ac09-4213a9ca4bcf" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/GoodsController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/PictureController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/UserController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/mapper/PictureMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/service/PictureService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/PictureServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/app.ff86f3f15f5e1bfacb585e03ed7f99e9.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/app.ff86f3f15f5e1bfacb585e03ed7f99e9.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/element-icons.535877f.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/element-icons.732389d.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/img/banner.aa89220.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/app.8d3b77b0017106593646.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/app.8d3b77b0017106593646.js.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/manifest.3ad1d5771e9b13dbdad2.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/manifest.3ad1d5771e9b13dbdad2.js.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/vendor.5bc714334c8b10dc6b82.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/vendor.5bc714334c8b10dc6b82.js.map" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_21.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_21.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_21.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_1_6_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/Application.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/CarouselController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/entity/Carousel.java" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/entity/Picture.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/mapper/CarouselMapper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/service/CarouselService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/CarouselServiceImpl.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/CarouselMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/PictureMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
+    <list default="true" id="b56a1603-b7b1-4719-ac09-4213a9ca4bcf" name="Default" comment="提交">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/PictureController.java" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/PictureController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/mapper/PictureMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/mapper/PictureMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/service/PictureService.java" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/service/PictureService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/PictureServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/PictureServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/PictureMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/PictureMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,75 +34,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="PictureController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/controller/PictureController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PictureService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/service/PictureService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PictureServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/PictureServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#882#883#0" expanded="true" />
-                <element signature="e#933#934#0" expanded="true" />
-                <element signature="e#1008#1009#0" expanded="true" />
-                <element signature="e#1069#1070#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PictureMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/mapper/PictureMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PictureMapper.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/PictureMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-              <folding>
-                <marker date="1590824080460" expanded="true" signature="240:381" ph="insert into tb_picture... " />
-                <marker date="1590824080460" expanded="true" signature="435:506" ph="delete from tb_picture" />
-                <marker date="1590824080460" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
-                <marker date="1590824080460" expanded="true" signature="604:933" ph="select pid a... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -184,11 +83,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/entity/Picture.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/CarouselServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/CarouselMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/PictureController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/service/PictureService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/PictureServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/mapper/PictureMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/PictureMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/PictureServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/service/PictureService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/PictureController.java" />
       </list>
     </option>
   </component>
@@ -233,7 +132,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds">
     <option name="x" value="11" />
     <option name="y" value="4" />
     <option name="width" value="1938" />
@@ -587,7 +486,7 @@
       <workItem from="1590720393717" duration="9607000" />
       <workItem from="1590802119188" duration="5517000" />
       <workItem from="1590811453633" duration="3795000" />
-      <workItem from="1590817281661" duration="4716000" />
+      <workItem from="1590817281661" duration="5344000" />
     </task>
     <task id="LOCAL-00001" summary="pom.xml">
       <created>1590641914490</created>
@@ -607,11 +506,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34173000" />
+    <option name="totallyTimeSpent" value="34801000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
-    <editor active="true" />
+    <frame x="11" y="4" width="1938" height="1048" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -634,7 +532,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5772834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23551503" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23551503" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -656,7 +554,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pom.xml" />
     <MESSAGE value="测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试" />
+    <MESSAGE value="提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -724,10 +623,10 @@
         <state relative-caret-position="276">
           <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding>
-            <marker date="1590824080460" expanded="true" signature="240:381" ph="insert into tb_picture... " />
-            <marker date="1590824080460" expanded="true" signature="435:506" ph="delete from tb_picture" />
-            <marker date="1590824080460" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
-            <marker date="1590824080460" expanded="true" signature="604:933" ph="select pid a... " />
+            <marker date="1590824844848" expanded="true" signature="240:381" ph="insert into tb_picture... " />
+            <marker date="1590824844848" expanded="true" signature="435:506" ph="delete from tb_picture" />
+            <marker date="1590824844848" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
+            <marker date="1590824844848" expanded="true" signature="604:936" ph="select pid a... " />
           </folding>
         </state>
       </provider>
@@ -793,10 +692,10 @@
         <state relative-caret-position="276">
           <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding>
-            <marker date="1590824080460" expanded="true" signature="240:381" ph="insert into tb_picture... " />
-            <marker date="1590824080460" expanded="true" signature="435:506" ph="delete from tb_picture" />
-            <marker date="1590824080460" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
-            <marker date="1590824080460" expanded="true" signature="604:933" ph="select pid a... " />
+            <marker date="1590824844848" expanded="true" signature="240:381" ph="insert into tb_picture... " />
+            <marker date="1590824844848" expanded="true" signature="435:506" ph="delete from tb_picture" />
+            <marker date="1590824844848" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
+            <marker date="1590824844848" expanded="true" signature="604:936" ph="select pid a... " />
           </folding>
         </state>
       </provider>
@@ -858,10 +757,10 @@
         <state relative-caret-position="276">
           <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding>
-            <marker date="1590824080460" expanded="true" signature="240:381" ph="insert into tb_picture... " />
-            <marker date="1590824080460" expanded="true" signature="435:506" ph="delete from tb_picture" />
-            <marker date="1590824080460" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
-            <marker date="1590824080460" expanded="true" signature="604:933" ph="select pid a... " />
+            <marker date="1590824844848" expanded="true" signature="240:381" ph="insert into tb_picture... " />
+            <marker date="1590824844848" expanded="true" signature="435:506" ph="delete from tb_picture" />
+            <marker date="1590824844848" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
+            <marker date="1590824844848" expanded="true" signature="604:936" ph="select pid a... " />
           </folding>
         </state>
       </provider>
@@ -1028,10 +927,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/controller/PictureController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="33" column="37" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/service/PictureService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="230">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1040,32 +949,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/PictureServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="500">
+          <caret line="30" column="35" lean-forward="true" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#882#883#0" expanded="true" />
-            <element signature="e#933#934#0" expanded="true" />
-            <element signature="e#1008#1009#0" expanded="true" />
-            <element signature="e#1069#1070#0" expanded="true" />
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/mapper/PictureMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/controller/PictureController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+        <state relative-caret-position="276">
+          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1074,13 +973,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/PictureMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        <state relative-caret-position="575">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
           <folding>
-            <marker date="1590824080460" expanded="true" signature="240:381" ph="insert into tb_picture... " />
-            <marker date="1590824080460" expanded="true" signature="435:506" ph="delete from tb_picture" />
-            <marker date="1590824080460" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
-            <marker date="1590824080460" expanded="true" signature="604:933" ph="select pid a... " />
+            <marker date="1590824844848" expanded="true" signature="240:381" ph="insert into tb_picture... " />
+            <marker date="1590824844848" expanded="true" signature="435:506" ph="delete from tb_picture" />
+            <marker date="1590824844848" expanded="true" signature="604:762" ph="select id as... tb_carousel" />
+            <marker date="1590824844848" expanded="true" signature="604:936" ph="select pid a... " />
           </folding>
         </state>
       </provider>

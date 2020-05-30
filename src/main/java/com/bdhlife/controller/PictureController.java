@@ -27,11 +27,11 @@ public class PictureController {
     }
     //删除一张图片
     @RequestMapping("/delPicture")
-    public Result delPicture(Integer id){
-        if ( null == id ){
+    public Result delPicture(Integer pid){
+        if ( null == pid ){
             return Result.build(500,"未输入id");
         }
-        int flag=pictureService.delPicture(id);
+        int flag=pictureService.delPicture(pid);
         if (flag==1){
             return Result.ok();
         }

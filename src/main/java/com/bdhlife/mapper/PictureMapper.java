@@ -10,7 +10,7 @@ public interface PictureMapper {
 
     int addPicture(Picture picture);
 
-    int delPicture(Integer id);
+    int delPicture(Integer pid);
 
     List<Picture> findPictureList(Integer goodsId);
 

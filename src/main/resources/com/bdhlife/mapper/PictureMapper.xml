@@ -30,7 +30,7 @@
         tb_picture
         <where>
             <if test="goodsId != null and goodsId != '' ">
-                and goods_id = goodsId
+                and goods_id = #{goodsId}
             </if>
         </where>
         order by sort

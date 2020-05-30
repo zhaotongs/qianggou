@@ -27,8 +27,8 @@ public class PictureServiceImpl implements PictureService {
     }
 
     @Override
-    public int delPicture(Integer id) {
-        return pictureMapper.delPicture(id);
+    public int delPicture(Integer pid) {
+        return pictureMapper.delPicture(pid);
     }
 
     @Override
