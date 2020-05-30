@@ -22,9 +22,9 @@
     <insert id="addKuCun" >
         insert into tb_goods_kucun
         (
-        sku_id,name,images,shangpId,stock,size,color
+        name,images,shangp_id,stock,size,color
         )VALUES (
-        #{skuId},#{name},#{images},#{shangpId},#{stock},#{size},#{color}
+        #{name},#{images},#{shangpId},#{stock},#{size},#{color}
         )
     </insert>
 
