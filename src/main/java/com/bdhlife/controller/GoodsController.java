@@ -28,6 +28,19 @@ public class GoodsController {
         List<Goods> list=goodsService.findGoodsList(goodsId);
         return Result.ok(list);
     }
+    @RequestMapping("/addGood")
+    public Result addGood(
+            String name,//商品名称
+            String title,//顶部文本内容
+            String description//详细描述
+    ){
+        int flag=goodsService.addGood(name,title,description);
+        if (flag==1){
+            return Result.ok();
+        }
+        return Result.build(500,"添加失败");
+    }
+
     @RequestMapping("/addKuCun")
     public Result addKuCun(String name,String images, String shangpId,String size,
                            String color,String stock,String price ) {

@@ -8,10 +8,11 @@ import javax.xml.soap.Text;
 @Data
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 public class Goods {
+
     private Integer spuId;
     private String name;
     private String title;
     private String description;
-    private String state;
+    private int state;
 
 }

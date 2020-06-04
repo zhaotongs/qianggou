@@ -14,9 +14,13 @@ public interface GoodsMapper {
 
     List<Goods> findGoodsList(Integer goodsId);
 
+    int addGood(Goods goods);
+
     int addKuCun( @Param("name") String name,
                  @Param("images") String images, @Param("shangpId") String shangpId, @Param("size") String size,
                  @Param("color") String color, @Param("stock") String stock, @Param("price")String price);
 
     List<KuCun> queryKuCunList(@Param("color")String color, @Param("size")String size, @Param("skuId")String skuId);
+
+
 }
