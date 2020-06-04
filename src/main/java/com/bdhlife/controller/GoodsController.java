@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -43,14 +44,14 @@ public class GoodsController {
 
     @RequestMapping("/addKuCun")
     public Result addKuCun(String name,String images, String shangpId,String size,
-                           String color,String stock,String price ) {
+                           String color,String stock,BigDecimal price ) {
         goodsService.addKuCun(name,images,shangpId,size,color,stock,price);
         return Result.ok();
     }
 
     @RequestMapping("/queryKuCun")
-    public Result queryKuCunList(String color, String size, String skuId) {
-        List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId);
+    public Result queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
+        List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId,shangpId);
         return Result.build(200, "success", kuCuns);
 
     }

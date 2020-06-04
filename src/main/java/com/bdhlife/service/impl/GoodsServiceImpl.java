@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -34,12 +35,12 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public int addKuCun( String name, String images, String shangpId, String size, String color,
-                        String stock, String price) {
+                        String stock, BigDecimal price) {
         return goodsMapper.addKuCun(name,images,shangpId,size,color,stock,price);
     }
 
     @Override
-    public List<KuCun> queryKuCunList(String color, String size, String skuId) {
-        return goodsMapper.queryKuCunList(color, size, skuId);
+    public List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
+        return goodsMapper.queryKuCunList(color, size, skuId,shangpId);
     }
 }

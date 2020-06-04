@@ -66,6 +66,9 @@
                 <if test="skuId != null and skuId != '' ">
                     and sku_id = #{skuId}
                 </if>
+                <if test="shangpId != null and shangpId != '' ">
+                    and shangp_id = #{shangpId}
+                </if>
             </where>
 
     </select>

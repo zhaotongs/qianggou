@@ -3,6 +3,7 @@ package com.bdhlife.service;
 import com.bdhlife.entity.Goods;
 import com.bdhlife.entity.KuCun;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface GoodsService {
@@ -12,8 +13,8 @@ public interface GoodsService {
     int addGood(String name, String title, String description);
 
     int addKuCun( String name, String images, String shangpId, String size,
-                 String color, String stock, String price);
+                 String color, String stock, BigDecimal price);
 
-    List<KuCun> queryKuCunList(String color, String size, String skuId);
+    List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId);
 
 }
