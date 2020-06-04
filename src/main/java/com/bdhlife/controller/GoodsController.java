@@ -25,7 +25,7 @@ public class GoodsController {
 
     @RequestMapping("/findGoodList")
     //查询库存列表，
-    public Result findPictureList(Integer goodsId){
+    public Result findGoodsList(Integer goodsId){
         List<Goods> list=goodsService.findGoodsList(goodsId);
         return Result.ok(list);
     }
@@ -42,6 +42,15 @@ public class GoodsController {
         return Result.build(500,"添加失败");
     }
 
+    @RequestMapping("delGood")
+    public Result delGood(int spuId){
+        int flag=goodsService.delGood(spuId);
+        if (flag==1){
+            return Result.ok();
+        }
+        return Result.build(500,"删除失败");
+    }
+
     @RequestMapping("/addKuCun")
     public Result addKuCun(String name,String images, String shangpId,String size,
                            String color,String stock,BigDecimal price ) {
@@ -54,6 +63,15 @@ public class GoodsController {
         List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId,shangpId);
         return Result.build(200, "success", kuCuns);
 
+    }
+
+    @RequestMapping("/delKuCun")
+    public Result delKuCun(int skuId){
+        int flag=goodsService.delKuCun(skuId);
+        if (flag==1){
+            return Result.ok();
+        }
+        return Result.build(500,"删除失败");
     }
 
 }

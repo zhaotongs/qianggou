@@ -34,6 +34,11 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
+    public int delGood(int spuId) {
+        return goodsMapper.delGood(spuId);
+    }
+
+    @Override
     public int addKuCun( String name, String images, String shangpId, String size, String color,
                         String stock, BigDecimal price) {
         return goodsMapper.addKuCun(name,images,shangpId,size,color,stock,price);
@@ -42,5 +47,10 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
         return goodsMapper.queryKuCunList(color, size, skuId,shangpId);
+    }
+
+    @Override
+    public int delKuCun(int skuId) {
+        return goodsMapper.delKuCun(skuId);
     }
 }

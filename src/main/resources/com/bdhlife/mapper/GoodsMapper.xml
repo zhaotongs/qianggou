@@ -34,6 +34,15 @@
         )
     </insert>
 
+    <delete id="delGood">
+        delete
+        from
+        tb_goods_shangp
+        where
+        spu_id=#{spuId}
+    </delete>
+
+
     <insert id="addKuCun" >
         insert into tb_goods_kucun
         (
@@ -72,5 +81,13 @@
             </where>
 
     </select>
+
+    <delete id="delKuCun">
+        delete
+        from
+        tb_goods_kucun
+        where
+        sku_id=#{skuId}
+    </delete>
 
 </mapper>
