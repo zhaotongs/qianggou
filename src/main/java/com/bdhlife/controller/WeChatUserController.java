@@ -31,7 +31,7 @@ import java.util.Map;
  *
  */
 @RestController
-@RequestMapping("/weChatUser")
+@RequestMapping("/wechatlogin")
 @PropertySource("classpath:application.properties")
 public class WeChatUserController {
 
