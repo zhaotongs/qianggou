@@ -9,21 +9,9 @@
     <list default="true" id="b56a1603-b7b1-4719-ac09-4213a9ca4bcf" name="Default" comment="提交">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatController.java" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatUserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatUserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdhlife/filter/CORSFilter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/app.ff86f3f15f5e1bfacb585e03ed7f99e9.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/app.ff86f3f15f5e1bfacb585e03ed7f99e9.css.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/fonts/element-icons.535877f.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/fonts/element-icons.732389d.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/img/banner.aa89220.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/app.8d3b77b0017106593646.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/app.8d3b77b0017106593646.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/manifest.3ad1d5771e9b13dbdad2.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/manifest.3ad1d5771e9b13dbdad2.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/vendor.5bc714334c8b10dc6b82.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/vendor.5bc714334c8b10dc6b82.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,11 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="WeChatUserController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WeChatUserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+            <state relative-caret-position="452">
+              <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1502#1515#1" expanded="true" />
@@ -61,14 +59,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WeChatController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WeChatController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+            <state relative-caret-position="335">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,6 +104,7 @@
       <find>goodsId</find>
       <find>redirect_uri</find>
       <find>是</find>
+      <find>state</find>
     </findStrings>
     <replaceStrings>
       <replace>Result</replace>
@@ -154,13 +163,13 @@
         <option value="$PROJECT_DIR$/src/main/resources/com/bdhlife/mapper/GoodsMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/service/impl/GoodsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/utils/SignUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WechatUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/entity/WeChatUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/entity/UserAccessToken.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/utils/WechatUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatUserController.java" />
       </list>
     </option>
@@ -310,33 +319,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qianggou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qianggou" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qianggou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qianggou" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="bdhlife" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qianggou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qianggou" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="bdhlife" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -523,7 +505,7 @@
       <workItem from="1590811453633" duration="3795000" />
       <workItem from="1590817281661" duration="24842000" />
       <workItem from="1590898896655" duration="6262000" />
-      <workItem from="1591328234193" duration="10568000" />
+      <workItem from="1591328234193" duration="15899000" />
     </task>
     <task id="LOCAL-00001" summary="pom.xml">
       <created>1590641914490</created>
@@ -543,7 +525,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85756000" />
+    <option name="totallyTimeSpent" value="91087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -626,14 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="43" lean-forward="true" selection-start-line="0" selection-start-column="43" selection-end-line="0" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/utils/HttpClientUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,14 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/entity/WeChatUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -885,25 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="e#489#490#0" expanded="false" />
-            <element signature="e#550#551#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="28" column="63" lean-forward="true" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/utils/SignUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -924,24 +871,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatUserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/utils/HttpClientUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1502#1515#1" expanded="true" />
-            <element signature="e#1554#1571#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="59">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state relative-caret-position="335">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bdhlife/controller/WeChatUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1502#1515#1" expanded="true" />
+            <element signature="e#1554#1571#1" expanded="true" />
           </folding>
         </state>
       </provider>

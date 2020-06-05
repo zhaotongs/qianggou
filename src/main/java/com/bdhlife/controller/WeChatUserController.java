@@ -46,13 +46,12 @@ public class WeChatUserController {
     private String appSecret;
 
     @RequestMapping(value = "/logincheck", method = { RequestMethod.GET })
-    public String logincheck(HttpServletRequest request, HttpServletResponse response) {
+    public String logincheck(String code,String state, HttpServletRequest request,HttpServletResponse response) {
         log.debug("weixin login get...");
         // 获取微信公众号传输过来的code,通过code可获取access_token,进而获取用户信息
-        String code = request.getParameter("code");
-        // 这个state可以用来传我们自定义的信息，方便程序调用，这里也可以不用
-        // String roleType = request.getParameter("state");
         log.debug("weixin login code:" + code);
+        // 这个state可以用来传我们自定义的信息，方便程序调用，这里也可以不用
+        log.debug("weixin login state:" + state);
         if (null != code) {
             try {
                 // 通过code获取access_token
