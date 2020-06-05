@@ -1,32 +1,30 @@
 package com.bdhlife.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+
+@Data
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 public class WeChatUser {
-    private String uid;
-    //小程序id
-    private String openid;
-    //微信名
-    private String name;
-    //微信性别
-    private Integer sex;
-    //登录状态
-    private Integer status;
-    //所在地区城市
-    private String city;
-    //所在地区省
+
+    // openId,标识该公众号下面的该用户的唯一Id
+    private String openId;
+    // 用户昵称
+    private String nickName;
+    // 性别
+    private int sex;
+    // 省份
     private String province;
-    //所在地区国家
+    // 城市
+    private String city;
+    // 区
     private String country;
-    //登录态标识
-    private String sessionkey;
-    //同一个微信开放平台帐号下应用和公众帐号（包括小程序），用户的 UnionID 是唯一的
-    private String unionid;
-    //注册时间
-    private String create_time;
-    //最近登录时间
-    private String updateTime;
-    //登录态标识
-    private String skey;
-    //用户手机号
-    private String phone_namber;
+    // 头像图片地址
+    private String headimgurl;
+    // 语言
+    private String language;
+    // 用户权限，这里没什么作用
+    private String[] privilege;
+
 
 }

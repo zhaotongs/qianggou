@@ -1,133 +1,81 @@
 package com.bdhlife.controller;
 
+import com.bdhlife.entity.UserAccessToken;
+import com.bdhlife.entity.WeChatUser;
 import com.bdhlife.service.WeChatUserService;
 import com.bdhlife.utils.HttpClientUtil;
+import com.bdhlife.utils.WechatUtil;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * 获取关注公众号之后的微信用户信息的接口，如果在微信浏览器里访问
+ * https://open.weixin.qq.com/connect/oauth2/authorize?appid=您的appId&redirect_uri=http://o2o.yitiaojieinfo.com/o2o/wechatlogin/logincheck&role_type=1&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect
+ * 则这里将会获取到code,之后再可以通过code获取到access_token 进而获取到用户信息
+ *
+ * @author xiangze
+ *
+ */
 @RestController
 @RequestMapping("/weChatUser")
+@PropertySource("classpath:application.properties")
 public class WeChatUserController {
+
+    private static Logger log = LoggerFactory.getLogger(WeChatUserController.class);
 
     @Autowired
     private WeChatUserService weChatUserService;
 
-    private static String appId = "wx7f770864a1a08e90";
-    private static String appSecret = "52da9d2386081eb8a191163af124f2f9";
-    //域名
-    private static String safetyDomainNameURL="localhost:8080/weChatUser/";
+    @Value("${wx.appId}")
+    private String appId;
+    @Value("${wx.appSecret}")
+    private String appSecret;
 
-    @RequestMapping("/login")
-    public String weChatUserLogin(HttpServletRequest request){
-        String appid=  appId;
-        String safety_domain_name= safetyDomainNameURL;
-        //scpoe为snsapi_base则不会出现需用户点击授权的弹框，但如果在用户没关注微信公众号的前提下是无法获取微信名和头像
-        String queryURL=
-                "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=" +appId+
-                        "&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php" +
-                        "&response_type=code" +
-                        "&scope=snsapi_userinfo" +
-                        "&state=666" +
-                        "#wechat_redirect";
-        return "redirect"+queryURL;
-    }
-    @RequestMapping("/toMain")
-    public void toMain(HttpServletRequest request){
-        String code=request.getParameter("code");
-        System.out.println("code========================"+code);
-        //通过code换取网页授权access_token,这个access_token主要用于下面获取用户基本信息
-        Map<String,String>reader=getReader(code,"POST");
-        String oppen_id = reader.get("oppen_id").toString();
-        String access_token = reader.get("access_token");
-        //查询用户基本信息
-        Map map_baseMsg=isBaseMsg(request,oppen_id,access_token);
-        String wechat_name = map_baseMsg.get("nickname").toString();
-        String headimgurl = map_baseMsg.get("headimgurl").toString();
-        //获取用户是否关注公众号
-        Map map_isattention=isattention(request,oppen_id);
-        String subscribe = map_isattention.get("subscribe").toString();
-        System.out.println("用户名"+wechat_name+"头像"+headimgurl+"是否关注公众号"+subscribe);
-    }
-
-    //通过code换取网页授权access_token,这个access_token主要用于下面获取用户基本信息
-    public Map<String, String> getReader(String code, String method) {
-        String queryURL="https://api.weixin.qq.com/sns/oauth2/access_token?appid="+ appId
-                +"&secret="+appSecret+"&code="+code+"&grant_type=authorization_code";
-        Map<String, String> map = new HashMap<String,String>();
-        String oppen_id=null;
-        String access_token=null;
-        try{
-            JSONObject jsonObject = new JSONObject(HttpClientUtil.doGet(queryURL));
-            if (jsonObject!=null){
-                access_token=jsonObject.get("access_token").toString();
-                oppen_id=jsonObject.get("openid").toString();
-                map.put("access_token",access_token);
-                map.put("open_id",oppen_id);
-            }
-        }
-        catch (Exception e){
-
-        }
-        return map;
-    }
-    //查询用户基本信息
-    public Map isBaseMsg(HttpServletRequest request, String oppen_id, String access_token) {
-        Map<String, String> map = new HashMap<String,String>();
-        String attentionUrl="https://api.weixin.qq.com/sns/userinfo?access_token="+access_token+"&openid="
-                +oppen_id+"&lang=zh_CN";
-        try{
-            String wechat_name = null;
-            String headimgurl = null;
-            JSONObject jsonObject = new JSONObject(HttpClientUtil.doGet(attentionUrl));
-            if (jsonObject != null ){
-                wechat_name = jsonObject.get("nickname").toString();
-                headimgurl=jsonObject.get("headimgurl").toString();
-                map.put("wechat_name",wechat_name);
-                map.put("headimgurl",headimgurl);
-            }
-        }
-        catch (Exception e){
-
-        }
-        return map;
-    }
-
-    //查询用户是否关注公众号，关注的前提下可以获取微信名和头像
-    @SuppressWarnings({"unused","rawtypes"})
-    private Map isattention(HttpServletRequest request, String oppen_id) {
-        Map<String, String> map = new HashMap<String,String>();
-        String attentionUrl="https://api.weixin.qq.com/cgi-bin/user/info?access_token="
-                + /*WeChat_var.getProp("access_token")+*/"&openid="+oppen_id+"&lang=zh_CN";
-        try{
-            String subscribe = null;
-            String wechat_name = null;
-            String headimgurl = null;
-            JSONObject jsonObject = new JSONObject(HttpClientUtil.doGet(attentionUrl));
-            if (jsonObject != null){
-                subscribe=jsonObject.get("subscribe").toString();
-                if ("1".equals(subscribe)){
-                    wechat_name=jsonObject.get("nickname").toString();
-                    headimgurl=jsonObject.get("headimgurl").toString();
-                }else {
-                    wechat_name="未关注";
-                    headimgurl="未关注";
+    @RequestMapping(value = "/logincheck", method = { RequestMethod.GET })
+    public String logincheck(HttpServletRequest request, HttpServletResponse response) {
+        log.debug("weixin login get...");
+        // 获取微信公众号传输过来的code,通过code可获取access_token,进而获取用户信息
+        String code = request.getParameter("code");
+        // 这个state可以用来传我们自定义的信息，方便程序调用，这里也可以不用
+        // String roleType = request.getParameter("state");
+        log.debug("weixin login code:" + code);
+        if (null != code) {
+            try {
+                // 通过code获取access_token
+                UserAccessToken token = WechatUtil.getUserAccessToken(code,appId,appSecret);
+                log.debug("weixin login token:" + token.toString());
+                // 通过token获取accessToken
+                String accessToken = token.getAccessToken();
+                // 通过token获取openId
+                String openId = token.getOpenId();
+                // 通过access_token和openId获取用户昵称等信息
+                WeChatUser user = WechatUtil.getUserInfo(accessToken, openId);
+                log.debug("weixin login user:" + user.toString());
+                request.getSession().setAttribute("openId", openId); }
+                catch (IOException e) {
+                    log.error("error in getUserAccessToken or getUserInfo or findByOpenId: " + e.toString());
+                    e.printStackTrace();
                 }
             }
-            map.put("wechat_name",wechat_name);
-            map.put("subscribe",subscribe);
-            map.put("headimgurl",headimgurl);
-        }
-        catch (Exception e){
-
-        }
-        return map;
+            // ======todo begin======
+            // 前面咱们获取到openId后，可以通过它去数据库判断该微信帐号是否在我们网站里有对应的帐号了，
+            // 没有的话这里可以自动创建上，直接实现微信与咱们网站的无缝对接。
+            // ======todo end======
+            return null;
     }
 
 }
