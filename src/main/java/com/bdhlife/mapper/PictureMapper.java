@@ -13,6 +13,7 @@ public interface PictureMapper {
 
     int delPicture(Integer pid);
 
-    List<Picture> findPictureList(Integer goodsId);
+    List<Picture> findPictureList(@Param("goodsId") Integer goodsId,@Param("position") Integer position);
 
+    Picture findByPid(int pid);
 }

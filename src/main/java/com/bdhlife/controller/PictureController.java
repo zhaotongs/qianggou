@@ -18,8 +18,8 @@ public class PictureController {
 
     //添加一张图片
     @RequestMapping("/addPicture")
-    public Result addPicture(Integer goodsId,Integer position,Integer sort,String url){
-        int flag=pictureService.addPicture( goodsId, position, sort, url);
+    public Result addPicture(Integer goodsId,Integer position,Integer sort,String file){
+        int flag=pictureService.addPicture( goodsId, position, sort, file);
         if (flag==1){
             return Result.ok();
         }
@@ -27,10 +27,7 @@ public class PictureController {
     }
     //删除一张图片
     @RequestMapping("/delPicture")
-    public Result delPicture(Integer pid){
-        if ( null == pid ){
-            return Result.build(500,"未输入id");
-        }
+    public Result delPicture(int pid){
         int flag=pictureService.delPicture(pid);
         if (flag==1){
             return Result.ok();
@@ -39,8 +36,8 @@ public class PictureController {
     }
     @RequestMapping("/findPictureList")
     //查询图片列表
-    public Result findPictureList(Integer goodsId){
-        List<Picture>list=pictureService.findPictureList(goodsId);
+    public Result findPictureList(Integer goodsId,Integer position){
+        List<Picture>list=pictureService.findPictureList(goodsId,position);
         return Result.ok(list);
     }
 

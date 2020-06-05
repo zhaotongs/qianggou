@@ -52,9 +52,9 @@ public class GoodsController {
     }
 
     @RequestMapping("/addKuCun")
-    public Result addKuCun(String name,String images, String shangpId,String size,
+    public Result addKuCun(String name,String file, String shangpId,String size,
                            String color,String stock,BigDecimal price ) {
-        goodsService.addKuCun(name,images,shangpId,size,color,stock,price);
+        goodsService.addKuCun(name,file,shangpId,size,color,stock,price);
         return Result.ok();
     }
 

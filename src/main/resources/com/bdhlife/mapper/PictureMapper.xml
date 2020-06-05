@@ -32,8 +32,23 @@
             <if test="goodsId != null and goodsId != '' ">
                 and goods_id = #{goodsId}
             </if>
+            <if test="position != null and position != '' ">
+                and position = #{position}
+            </if>
         </where>
         order by sort
+    </select>
+
+    <select id="findByPid" resultType="com.bdhlife.entity.Picture">
+        select
+        pid as pid,
+        url as url,
+        goods_id as goodsId,
+        position as position,
+        sort as sort
+        from
+        tb_picture
+        where pid = #{pid}
     </select>
 
 </mapper>

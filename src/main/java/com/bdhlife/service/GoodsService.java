@@ -14,7 +14,7 @@ public interface GoodsService {
 
     int delGood(int spuId);
 
-    int addKuCun( String name, String images, String shangpId, String size,
+    int addKuCun( String name, String file, String shangpId, String size,
                  String color, String stock, BigDecimal price);
 
     List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId);
