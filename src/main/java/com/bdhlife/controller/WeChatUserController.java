@@ -3,6 +3,7 @@ package com.bdhlife.controller;
 import com.bdhlife.entity.UserAccessToken;
 import com.bdhlife.entity.WeChatUser;
 import com.bdhlife.service.WeChatUserService;
+import com.bdhlife.utils.Result;
 import com.bdhlife.utils.WechatUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+
 /**
  * 获取关注公众号之后的微信用户信息的接口，如果在微信浏览器里访问
  * https://open.weixin.qq.com/connect/oauth2/authorize?appid=您的appId&redirect_uri=http://o2o.yitiaojieinfo.com/o2o/wechatlogin/logincheck&role_type=1&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect
@@ -41,7 +44,7 @@ public class WeChatUserController {
     private String appSecret;
 
     @RequestMapping(value = "/logincheck", method = { RequestMethod.GET })
-    public String logincheck(String code,String state, HttpServletRequest request,HttpServletResponse response) {
+    public Result logincheck(String code, String state, HttpServletRequest request) {
         log.debug("weixin login get...");
         // 获取微信公众号传输过来的code,通过code可获取access_token,进而获取用户信息
         log.debug("weixin login code:" + code);
@@ -58,14 +61,34 @@ public class WeChatUserController {
             // 通过access_token和openId获取用户昵称等信息
             WeChatUser user = WechatUtil.getUserInfo(accessToken, openId);
             log.debug("weixin login user:" + user.toString());
+            //获取openId，把epenId放入session域中
             request.getSession().setAttribute("openId", openId);
-            int flag = weChatUserService.weChatUserLogin(user);
-            // ======todo begin======
-            // 前面咱们获取到openId后，可以通过它去数据库判断该微信帐号是否在我们网站里有对应的帐号了，
-            // 没有的话这里可以自动创建上，直接实现微信与咱们网站的无缝对接。
-            // ======todo end======
-            return "index";
+            //根据openId获取本地用户数据
+            WeChatUser weChatUser=weChatUserService.findUserByOpenId(openId);
+            if (weChatUser==null){
+                //如果为空则说明表中没有该用户，则添加新的用户
+                int flag = weChatUserService.weChatUserLogin(user);
+                if (flag==1){
+                    return Result.build(200,"授权成功");
+                }
+                return Result.build(500,"授权失败");
+            }
+            //如果已经存在该用户，则直接返回
+            return Result.build(500,"您已经授权过了");
         }
-        return null;
+
+        return Result.build(500,"未输入code值");
+    }
+
+    @RequestMapping("/findUserByOpenId")
+    public Result findUserByOpenId(String openId){
+        WeChatUser user = weChatUserService.findUserByOpenId(openId);
+        return Result.ok(user);
+    }
+
+    @RequestMapping("findUserList")
+    public Result findUserList(){
+        List<WeChatUser>list=weChatUserService.findUserList();
+        return Result.ok(list);
     }
 }

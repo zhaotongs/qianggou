@@ -11,5 +11,32 @@
         )
     </insert>
 
+    <select id="findUserByOpenId" resultType="com.bdhlife.entity.WeChatUser">
+        select
+        open_id as openId ,
+        nick_name as nickName ,
+        sex as sex ,
+        province as province ,
+        city as city ,
+        country as country ,
+        headimg_url as headimgurl
+        from
+        tb_shop_user
+        where
+        open_id = #{openId}
+    </select>
+
+    <select id="findUserList" resultType="com.bdhlife.entity.WeChatUser">
+        select
+        open_id as openId ,
+        nick_name as nickName ,
+        sex as sex ,
+        province as province ,
+        city as city ,
+        country as country ,
+        headimg_url as headimgurl
+        from
+        tb_shop_user
+    </select>
 
 </mapper>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -22,5 +23,15 @@ public class WeChatUserServiceImpl implements WeChatUserService {
     @Override
     public int weChatUserLogin(WeChatUser user) {
         return weChatUserMapper.weChatUserLogin(user);
+    }
+
+    @Override
+    public WeChatUser findUserByOpenId(String openId) {
+        return weChatUserMapper.findUserByOpenId(openId);
+    }
+
+    @Override
+    public List<WeChatUser> findUserList() {
+        return weChatUserMapper.findUserList();
     }
 }
