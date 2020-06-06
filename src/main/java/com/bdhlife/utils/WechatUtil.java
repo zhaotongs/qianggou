@@ -5,6 +5,7 @@ import com.bdhlife.entity.WeChatUser;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,34 +30,22 @@ public class WechatUtil {
      * @return
      * @throws IOException
      */
-    public static UserAccessToken getUserAccessToken(String code,String appId,String appsecret) throws IOException {
+    public static UserAccessToken getUserAccessToken(String code,String appId,String appsecret) {
         log.debug("appId:" + appId);
         log.debug("secret:" + appsecret);
         // 根据传入的code,拼接出访问微信定义好的接口的URL
         String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + appId + "&secret=" + appsecret
                 + "&code=" + code + "&grant_type=authorization_code";
         // 向相应URL发送请求获取token json字符串
-        String jsonToken = HttpClientUtil.doGet(url);
+        JSONObject jsonToken =new JSONObject( HttpClientUtil.doGet(url));
         log.debug("userAccessToken:" + jsonToken);
         UserAccessToken token = new UserAccessToken();
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            // 将json字符串转换成相应对象
-            token = objectMapper.readValue(jsonToken, UserAccessToken.class);
-        } catch (JsonParseException e) {
-            log.error("获取用户accessToken失败: " + e.getMessage());
-            e.printStackTrace();
-        } catch (JsonMappingException e) {
-            log.error("获取用户accessToken失败: " + e.getMessage());
-            e.printStackTrace();
-        } catch (IOException e) {
-            log.error("获取用户accessToken失败: " + e.getMessage());
-            e.printStackTrace();
-        }
-        if (token == null) {
-            log.error("获取用户accessToken失败。");
-            return null;
-        }
+        token.setAccessToken(jsonToken.get("access_token").toString());
+        token.setExpiresIn(jsonToken.get("expires_in").toString());
+        token.setRefreshToken(jsonToken.get("refresh_token").toString());
+        token.setOpenId(jsonToken.get("openid").toString());
+        token.setScope(jsonToken.get("scope").toString());
+        log.debug("token:" + token);
         return token;
     }
 
@@ -72,27 +61,16 @@ public class WechatUtil {
         String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + accessToken + "&openid=" + openId
                 + "&lang=zh_CN";
         // 访问该URL获取用户信息json 字符串
-        String json=HttpClientUtil.doGet(url);
+        JSONObject json=new JSONObject(HttpClientUtil.doGet(url));
         log.debug("user info :" + json);
         WeChatUser user = new WeChatUser();
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            // 将json字符串转换成相应对象
-            user = objectMapper.readValue(json, WeChatUser.class);
-        } catch (JsonParseException e) {
-            log.error("获取用户信息失败: " + e.getMessage());
-            e.printStackTrace();
-        } catch (JsonMappingException e) {
-            log.error("获取用户信息失败: " + e.getMessage());
-            e.printStackTrace();
-        } catch (IOException e) {
-            log.error("获取用户信息失败: " + e.getMessage());
-            e.printStackTrace();
-        }
-        if (user == null) {
-            log.error("获取用户信息失败。");
-            return null;
-        }
+        user.setOpenId(json.get("openid").toString());
+        user.setNickName(json.get("nickname").toString());
+        user.setSex(json.get("sex").toString());
+        user.setProvince(json.get("province").toString());
+        user.setCity(json.get("city").toString());
+        user.setCountry(json.get("country").toString());
+        user.setHeadimgurl(json.get("headimgurl").toString());
         return user;
     }
 }

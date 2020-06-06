@@ -12,7 +12,7 @@ public class WeChatUser {
     // 用户昵称
     private String nickName;
     // 性别
-    private int sex;
+    private String sex;
     // 省份
     private String province;
     // 城市
@@ -21,10 +21,10 @@ public class WeChatUser {
     private String country;
     // 头像图片地址
     private String headimgurl;
-    // 语言
-    private String language;
-    // 用户权限，这里没什么作用
+    //用户特权信息，json 数组，如微信沃卡用户为（chinaunicom）,这里没什么作用
     private String[] privilege;
+    //只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段。
+    private String unionId;
 
 
 }

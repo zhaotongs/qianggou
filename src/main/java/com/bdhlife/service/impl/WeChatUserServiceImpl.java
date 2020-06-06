@@ -1,5 +1,6 @@
 package com.bdhlife.service.impl;
 
+import com.bdhlife.entity.WeChatUser;
 import com.bdhlife.mapper.WeChatUserMapper;
 import com.bdhlife.service.WeChatUserService;
 import org.apache.ibatis.jdbc.Null;
@@ -17,10 +18,9 @@ public class WeChatUserServiceImpl implements WeChatUserService {
     @Autowired
     private WeChatUserMapper weChatUserMapper;
 
+
     @Override
-    public String weChatUserLogin(String code) {
-        return null;
+    public int weChatUserLogin(WeChatUser user) {
+        return weChatUserMapper.weChatUserLogin(user);
     }
-
-
 }

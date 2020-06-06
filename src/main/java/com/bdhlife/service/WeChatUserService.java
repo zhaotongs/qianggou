@@ -1,7 +1,9 @@
 package com.bdhlife.service;
 
+import com.bdhlife.entity.WeChatUser;
+
 public interface WeChatUserService {
 
-    String weChatUserLogin(String code);
+    int weChatUserLogin(WeChatUser user);
 
 }
