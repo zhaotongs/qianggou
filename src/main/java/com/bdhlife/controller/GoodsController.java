@@ -23,12 +23,13 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
+    //查询商品列表
     @RequestMapping("/findGoodList")
-    //查询库存列表，
-    public Result findGoodsList(Integer goodsId){
-        List<Goods> list=goodsService.findGoodsList(goodsId);
+    public Result findGoodsList(Integer spuId){
+        List<Goods> list=goodsService.findGoodsList(spuId);
         return Result.ok(list);
     }
+    //添加商品
     @RequestMapping("/addGood")
     public Result addGood(
             String name,//商品名称
@@ -41,7 +42,7 @@ public class GoodsController {
         }
         return Result.build(500,"添加失败");
     }
-
+    //删除商品
     @RequestMapping("delGood")
     public Result delGood(int spuId){
         int flag=goodsService.delGood(spuId);
@@ -51,6 +52,7 @@ public class GoodsController {
         return Result.build(500,"删除失败");
     }
 
+    //添加一个库存商品
     @RequestMapping("/addKuCun")
     public Result addKuCun(String name,String file, String shangpId,String size,
                            String color,String stock,BigDecimal price ) {
@@ -58,6 +60,7 @@ public class GoodsController {
         return Result.ok();
     }
 
+    //条件查询库存商品
     @RequestMapping("/queryKuCun")
     public Result queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
         List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId,shangpId);
@@ -65,6 +68,7 @@ public class GoodsController {
 
     }
 
+    //删除库存商品
     @RequestMapping("/delKuCun")
     public Result delKuCun(int skuId){
         int flag=goodsService.delKuCun(skuId);

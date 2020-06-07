@@ -13,7 +13,7 @@ import java.util.List;
 public interface GoodsMapper {
 
 
-    List<Goods> findGoodsList(Integer goodsId);
+    List<Goods> findGoodsList(Integer spuId);
 
     int addGood(Goods goods);
 

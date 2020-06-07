@@ -26,8 +26,8 @@ public class GoodsServiceImpl implements GoodsService {
     private String path;
 
     @Override
-    public List<Goods> findGoodsList(Integer goodsId) {
-        return goodsMapper.findGoodsList(goodsId);
+    public List<Goods> findGoodsList(Integer spuId) {
+        return goodsMapper.findGoodsList(spuId);
     }
 
     @Override

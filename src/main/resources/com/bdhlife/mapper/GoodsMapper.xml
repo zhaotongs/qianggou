@@ -14,7 +14,7 @@
         tb_goods_shangp
         <where>
             <if test="goodsId != null and goodsId != '' ">
-                and spu_id = #{goodsId}
+                and spu_id = #{spuId}
             </if>
         </where>
     </select>

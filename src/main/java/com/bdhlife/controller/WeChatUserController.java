@@ -65,6 +65,8 @@ public class WeChatUserController {
             request.getSession().setAttribute("openId", openId);
             //根据openId获取本地用户数据
             WeChatUser weChatUser=weChatUserService.findUserByOpenId(openId);
+            String session = request.getSession().getId();
+            System.out.println("获取到的session为："+session);
             if (weChatUser==null){
                 //如果为空则说明表中没有该用户，则添加新的用户
                 int flag = weChatUserService.weChatUserLogin(user);
@@ -81,7 +83,10 @@ public class WeChatUserController {
     }
 
     @RequestMapping("/findUserByOpenId")
-    public Result findUserByOpenId(String openId){
+    public Result findUserByOpenId(HttpServletRequest request){
+        String session = request.getSession().getId();
+        System.out.println("获取到的session为："+session);
+        String openId = (String)request.getSession().getAttribute("openId");
         WeChatUser user = weChatUserService.findUserByOpenId(openId);
         return Result.ok(user);
     }
