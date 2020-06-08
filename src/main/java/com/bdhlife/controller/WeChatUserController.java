@@ -11,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -43,55 +45,48 @@ public class WeChatUserController {
     @Value("${wx.appSecret}")
     private String appSecret;
 
-    @RequestMapping(value = "/logincheck", method = { RequestMethod.GET })
-    public Result logincheck(String code, String state, HttpServletRequest request) {
-        log.debug("weixin login get...");
+    @PostMapping(value = "/logincheck")
+    public Result logincheck(String code, String state, HttpServletRequest request,HttpServletResponse response) {
+        System.out.println("weixin login get...");
         // 获取微信公众号传输过来的code,通过code可获取access_token,进而获取用户信息
-        log.debug("weixin login code:" + code);
+        System.out.println("weixin login code:" + code);
         // 这个state可以用来传我们自定义的信息，方便程序调用，这里也可以不用
-        log.debug("weixin login state:" + state);
+        //log.debug("weixin login state:" + state);
         if (null != code) {
             // 通过code获取access_token
             UserAccessToken token = WechatUtil.getUserAccessToken(code,appId,appSecret);
-            log.debug("weixin login token:" + token.toString());
+            System.out.println("weixin login token:" + token.toString());
             // 通过token获取accessToken
             String accessToken = token.getAccessToken();
             // 通过token获取openId
             String openId = token.getOpenId();
             // 通过access_token和openId获取用户昵称等信息
             WeChatUser user = WechatUtil.getUserInfo(accessToken, openId);
-            log.debug("weixin login user:" + user.toString());
-            //获取openId，把epenId放入session域中
-            request.getSession().setAttribute("openId", openId);
+            System.out.println("weixin login user:" + user.toString());
             //根据openId获取本地用户数据
             WeChatUser weChatUser=weChatUserService.findUserByOpenId(openId);
-            String session = request.getSession().getId();
-            System.out.println("获取到的session为："+session);
             if (weChatUser==null){
                 //如果为空则说明表中没有该用户，则添加新的用户
                 int flag = weChatUserService.weChatUserLogin(user);
                 if (flag==1){
-                    return Result.build(200,"授权成功");
+                    return Result.build(200,"授权成功",openId);
                 }
-                return Result.build(500,"授权失败");
+                return Result.build(501,"授权失败",openId);
             }
             //如果已经存在该用户，则直接返回
-            return Result.build(500,"您已经授权过了");
+            return Result.build(502,"您已经授权过了",openId);
         }
 
-        return Result.build(500,"未输入code值");
+        return Result.build(503,"未输入code值");
     }
 
     @RequestMapping("/findUserByOpenId")
-    public Result findUserByOpenId(HttpServletRequest request){
-        String session = request.getSession().getId();
-        System.out.println("获取到的session为："+session);
-        String openId = (String)request.getSession().getAttribute("openId");
+    public Result findUserByOpenId(String openId){
         WeChatUser user = weChatUserService.findUserByOpenId(openId);
         return Result.ok(user);
     }
 
-    @RequestMapping("findUserList")
+    @PostMapping("findUserList")
     public Result findUserList(){
         List<WeChatUser>list=weChatUserService.findUserList();
         return Result.ok(list);
