@@ -26,8 +26,14 @@ public class GoodsController {
     //查询商品列表
     @RequestMapping("/findGoodList")
     public Result findGoodsList(Integer spuId){
-        List<Goods> list=goodsService.findGoodsList(spuId);
-        return Result.ok(list);
+        try{
+            List<Goods> list=goodsService.findGoodsList(spuId);
+            return Result.build(200, "查询成功", list);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return Result.build(500, "未知异常");
+        }
     }
     //添加商品
     @RequestMapping("/addGood")
@@ -36,46 +42,81 @@ public class GoodsController {
             String title,//顶部文本内容
             String description//详细描述
     ){
-        int flag=goodsService.addGood(name,title,description);
-        if (flag==1){
-            return Result.ok();
+        try{
+            int flag=goodsService.addGood(name,title,description);
+            if (flag==1){
+                return Result.build(200,"添加成功");
+            }
+            return Result.build(500,"添加失败");
         }
-        return Result.build(500,"添加失败");
+        catch (Exception e){
+            e.printStackTrace();
+            return Result.build(500, "未知异常");
+        }
+
     }
     //删除商品
     @RequestMapping("delGood")
     public Result delGood(int spuId){
-        int flag=goodsService.delGood(spuId);
-        if (flag==1){
-            return Result.ok();
+        try{
+            int flag=goodsService.delGood(spuId);
+            if (flag==1){
+                return Result.build(200,"删除成功");
+            }
+            return Result.build(500,"删除失败");
         }
-        return Result.build(500,"删除失败");
+        catch (Exception e){
+            e.printStackTrace();
+            return Result.build(500, "未知异常");
+        }
+
+    }
+
+    //条件查询库存商品
+    @RequestMapping("/queryKuCun")
+    public Result queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
+        try{
+            List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId,shangpId);
+            return Result.build(200, "查询成功", kuCuns);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return Result.build(500, "未知异常");
+        }
     }
 
     //添加一个库存商品
     @RequestMapping("/addKuCun")
     public Result addKuCun(String name,String file, String shangpId,String size,
                            String color,String stock,BigDecimal price ) {
-        goodsService.addKuCun(name,file,shangpId,size,color,stock,price);
-        return Result.ok();
+        try{
+            goodsService.addKuCun(name,file,shangpId,size,color,stock,price);
+            return Result.build(200,"添加成功");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return Result.build(500, "未知异常");
+        }
+
     }
 
-    //条件查询库存商品
-    @RequestMapping("/queryKuCun")
-    public Result queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
-        List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId,shangpId);
-        return Result.build(200, "success", kuCuns);
 
-    }
 
     //删除库存商品
     @RequestMapping("/delKuCun")
     public Result delKuCun(int skuId){
-        int flag=goodsService.delKuCun(skuId);
-        if (flag==1){
-            return Result.ok();
+        try{
+            int flag=goodsService.delKuCun(skuId);
+            if (flag==1){
+                return Result.build(200,"删除成功");
+            }
+            return Result.build(500,"删除失败");
         }
-        return Result.build(500,"删除失败");
+        catch (Exception e){
+            e.printStackTrace();
+            return Result.build(500, "未知异常");
+        }
+
     }
 
 }

@@ -88,7 +88,23 @@
         sku_id=#{skuId}
     </delete>
 
-    <select id="findKuCunById">
+    <update id="updateKunCun">
+        update
+        tb_goods_kucun
+        <set>
+            <if test="name !=null and name != '' "> name = #{name},</if>
+            <if test="images !=null and images != '' "> images = #{images},</if>
+            <if test="shangpId !=null and shangpId != '' "> shangp_id = #{shangpId},</if>
+            <if test="price !=null and price != '' "> price = #{price},</if>
+            <if test="stock !=null and stock != '' "> stock = #{stock},</if>
+            <if test="size !=null and size != '' "> size = #{size},</if>
+            <if test="color !=null and color != '' "> color = #{color},</if>
+        </set>
+        WHERE
+        sku_id = #{skuId}
+    </update>
+
+    <select id="findKuCunById"  resultType="com.bdhlife.entity.KuCun">
         select
         sku_id as skuId,
         name as name ,

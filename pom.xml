@@ -24,11 +24,11 @@
         </dependency>
 
         <!--打war包时保留，不打war包的时候注掉-->
-        <dependency>
+       <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
 
 

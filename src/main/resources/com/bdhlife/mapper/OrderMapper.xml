@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bdhlife.mapper.OrderMapper">
+
+    <insert id="addOrder">
+        insert into tb_order
+        (
+        sku_id,spu_id,count,price,phone,address,real_name,state,open_id,order_number
+        )VALUES (
+        #{skuId},#{spuId},#{count},#{price},#{phone},#{address},#{realName},#{state},#{openId},#{orderNumber}
+        )
+    </insert>
+
+    <select id="findOrderList" resultType="com.bdhlife.entity.Order">
+        select
+        oid as oid,
+        sku_id as skuId,
+        spu_id as spuId,
+        count as count,
+        price as price,
+        phone as phone,
+        address as address,
+        real_name as realName,
+        state as state,
+        open_id as openId,
+        order_number as orderNumber
+        from
+        tb_order
+        <where>
+            <if test="spuId != null and spuId != '' ">
+                and spu_id = #{spuId}
+            </if>
+            <if test="openId != null and openId != '' ">
+                and open_id = #{openId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -39,4 +39,34 @@
         tb_shop_user
     </select>
 
+    <update id="updateUser">
+        update
+        tb_shop_user
+        <set>
+            <if test="nickName !=null and nickName != '' "> nick_name = #{nickName},</if>
+            <if test="sex !=null and sex != '' "> sex = #{sex},</if>
+            <if test="province !=null and province != '' "> province = #{province},</if>
+            <if test="city !=null and city != '' "> city = #{city},</if>
+            <if test="country !=null and country != '' "> country = #{country},</if>
+            <if test="headimgurl !=null and headimgurl != '' "> headimg_url = #{headimgurl},</if>
+            <if test="realName !=null and realName != '' "> real_name = #{realName},</if>
+            <if test="phone !=null and phone != '' "> phone = #{phone},</if>
+            <if test="address !=null and address != '' "> address = #{address},</if>
+        </set>
+        WHERE
+        open_id = #{openId}
+    </update>
+
+    <select id="findUserOrder" resultType="com.bdhlife.entity.WeChatUser">
+        select
+        open_id as openId ,
+        real_name as realName,
+        phone as phone,
+        address as address
+        from
+        tb_shop_user
+        where
+        open_id = #{openId}
+    </select>
+
 </mapper>

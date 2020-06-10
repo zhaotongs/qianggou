@@ -1,7 +1,12 @@
 package com.bdhlife.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+
 import java.math.BigDecimal;
 
+@Data
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 public class PayEntity {
 
     String appid;//APPID （已有）

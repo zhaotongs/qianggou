@@ -28,6 +28,8 @@ public interface GoodsMapper {
 
     int delKuCun(int skuId);
 
+    int updateKunCun(KuCun kuCun);
+
     KuCun findKuCunById(int skuId);
 
 }

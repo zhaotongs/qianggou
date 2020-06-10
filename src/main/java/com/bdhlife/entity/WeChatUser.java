@@ -26,5 +26,11 @@ public class WeChatUser {
     //只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段。
     private String unionId;
 
+    //联系人姓名
+    private String realName;
+    //联系人电话
+    private String phone;
+    //收件地址
+    private String address;
 
 }

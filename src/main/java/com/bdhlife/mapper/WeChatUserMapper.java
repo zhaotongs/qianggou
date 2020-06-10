@@ -14,4 +14,7 @@ public interface WeChatUserMapper {
 
     List<WeChatUser> findUserList();
 
+    int updateUser(WeChatUser weChatUser);
+
+    WeChatUser findUserOrder(String openId);
 }
