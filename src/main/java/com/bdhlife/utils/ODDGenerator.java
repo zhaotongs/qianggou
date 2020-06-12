@@ -22,7 +22,7 @@ import org.apache.commons.lang3.time.FastDateFormat;
  * @date 2018年5月11日
  * @version 1.0.0
  */
-public abstract class ODDGenerator {
+public class ODDGenerator {
     private static final FastDateFormat pattern = FastDateFormat.getInstance("yyyyMMddHHmmss");
     private static final AtomicInteger atomicInteger = new AtomicInteger(1);
     private static ThreadLocal<StringBuilder> threadLocal = new ThreadLocal<StringBuilder>();

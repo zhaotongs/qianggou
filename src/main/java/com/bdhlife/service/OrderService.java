@@ -14,4 +14,6 @@ public interface OrderService {
 
     List<Order> findOrderList(Integer spuId, String openId);
 
+    Order findOrderByNumber(String orderNumber);
+
 }

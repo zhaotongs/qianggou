@@ -36,4 +36,23 @@
         </where>
     </select>
 
+    <select id="findOrderByNumber" resultType="com.bdhlife.entity.Order">
+        select
+        oid as oid,
+        sku_id as skuId,
+        spu_id as spuId,
+        count as count,
+        price as price,
+        phone as phone,
+        address as address,
+        real_name as realName,
+        state as state,
+        open_id as openId,
+        order_number as orderNumber
+        from
+        tb_order
+        where
+        order_number = #{orderNumber}
+    </select>
+
 </mapper>

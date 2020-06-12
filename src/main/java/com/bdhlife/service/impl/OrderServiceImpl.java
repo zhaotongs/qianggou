@@ -66,5 +66,10 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.findOrderList(spuId,openId);
     }
 
+    @Override
+    public Order findOrderByNumber(String orderNumber) {
+        return orderMapper.findOrderByNumber(orderNumber);
+    }
+
 
 }
