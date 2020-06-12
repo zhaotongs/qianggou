@@ -59,7 +59,6 @@
 
     <select id="findUserOrder" resultType="com.bdhlife.entity.WeChatUser">
         select
-        open_id as openId ,
         real_name as realName,
         phone as phone,
         address as address

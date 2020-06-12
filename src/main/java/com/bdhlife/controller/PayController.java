@@ -8,6 +8,7 @@ import com.bdhlife.utils.IpUtils;
 import com.bdhlife.utils.wxpay.WXPay;
 import com.bdhlife.utils.wxpay.WXPayUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,10 +32,11 @@ public class PayController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping("/unifiedOrder")
+    //微信统一下单
+    @PostMapping("/unifiedOrder")
     public Map<String, String> unifiedOrder(
             String body,
-            String openid,
+            String openId,
             String orderNumber,// 咱们自己所提供的订单号,需要唯一
             HttpServletRequest request
     ){
@@ -53,7 +55,7 @@ public class PayController {
             //获取发起ip
             String ipAddress = IpUtils.getIpAddress(request);
             data.put("spbill_create_ip", ipAddress); // 下单ip
-            data.put("openid", openid); // 微信公众号统一标示openid
+            data.put("openid", openId); // 微信公众号统一标示openid
             data.put("notify_url", "yq.bdhlife.com"); // 订单结果通知, 微信主动回调此接口
             data.put("trade_type", "JSAPI"); // 固定填写
             System.out.println("发起微信支付下单接口,数据："+ data);
@@ -95,10 +97,10 @@ public class PayController {
         }
     }
 
-    @RequestMapping(value = "/payCallback", method = RequestMethod.POST)
+    //微信支付异步通知接口
+    @PostMapping("/payCallback")
     public String payCallback(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("进入微信支付异步通知");
-        String resXml="";
         try{
             //
             InputStream is = request.getInputStream();
@@ -119,7 +121,7 @@ public class PayController {
                     e.printStackTrace();
                 }
             }
-            resXml=sb.toString();
+            String resXml=sb.toString();
             System.out.println("微信支付异步通知请求包:"+resXml);
             return payBack(resXml);
         }catch (Exception e){
@@ -138,12 +140,10 @@ public class PayController {
             WXPay wxpay = new WXPay(iWxPayConfig);
             notifyMap = WXPayUtil.xmlToMap(notifyData);         // 转换成map
             if (wxpay.isPayResultNotifySignatureValid(notifyMap)) {
-                // 签名正确
-                // 进行处理。
+                // 签名正确，进行处理。
                 // 注意特殊情况：订单已经退款，但收到了支付结果成功的通知，不应把商户侧订单状态从退款改成支付成功
                 String return_code = notifyMap.get("return_code");//状态
                 String out_trade_no = notifyMap.get("out_trade_no");//订单号
-
                 if (out_trade_no == null) {
                     System.out.println("微信支付回调失败订单号:"+ notifyMap);
                     xmlBack = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>" + "<return_msg><![CDATA[报文为空]]></return_msg>" + "</xml> ";
@@ -151,6 +151,8 @@ public class PayController {
                 }
 
                 // 业务逻辑处理 ****************************
+                Integer oid = Integer.valueOf(notifyMap.get("out_trade_no"));
+                orderService.updateOrder(oid,2);
                 System.out.println("微信支付回调成功订单号:"+ notifyMap);
                 xmlBack = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>" + "<return_msg><![CDATA[SUCCESS]]></return_msg>" + "</xml> ";
                 return xmlBack;

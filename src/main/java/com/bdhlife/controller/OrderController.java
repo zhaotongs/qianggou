@@ -5,6 +5,7 @@ import com.bdhlife.entity.WeChatUser;
 import com.bdhlife.service.OrderService;
 import com.bdhlife.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class OrderController {
     private OrderService orderService;
 
     //根据用户的openid回显用户的姓名地址手机号
-    @RequestMapping("/findUserByOpenId")
+    @PostMapping("/findUserByOpenId")
     public Result findUserByOpenId(String openId){
         try{
             WeChatUser user=orderService.findUserByOpenId(openId);
@@ -50,7 +51,7 @@ public class OrderController {
     */
 
     //添加一个订单
-    @RequestMapping("/addOrder")
+    @PostMapping("/addOrder")
     public Result addOrder(
             Integer skuId,//对应sku表的id
             Integer spuId,//对应spu表的id
@@ -73,7 +74,7 @@ public class OrderController {
     }
 
     //查询订单列表
-    @RequestMapping("/findOrderList")
+    @PostMapping("/findOrderList")
     public Result findOrderList(Integer spuId,String openId){
         try{
             List<Order>list=orderService.findOrderList(spuId,openId);

@@ -15,4 +15,5 @@ public interface OrderMapper {
 
     Order findOrderByNumber(String orderNumber);
 
+    int updateOrder(Order order);
 }

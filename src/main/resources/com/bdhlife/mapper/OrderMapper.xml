@@ -55,4 +55,14 @@
         order_number = #{orderNumber}
     </select>
 
+    <update id="updateOrder">
+        update
+        tb_order
+        <set>
+            <if test="state !=null and state != '' "> state = #{state},</if>
+        </set>
+        WHERE
+        oid = #{oid}
+    </update>
+
 </mapper>

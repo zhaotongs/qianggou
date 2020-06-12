@@ -16,4 +16,6 @@ public interface OrderService {
 
     Order findOrderByNumber(String orderNumber);
 
+    int updateOrder(Integer oid,Integer state);
+
 }

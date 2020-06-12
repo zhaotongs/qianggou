@@ -71,5 +71,13 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.findOrderByNumber(orderNumber);
     }
 
+    @Override
+    public int updateOrder(Integer oid, Integer state) {
+        Order order = new Order();
+        order.setOid(oid);
+        order.setState(state);
+        return orderMapper.updateOrder(order);
+    }
+
 
 }
