@@ -40,10 +40,12 @@ public class GoodsController {
     public Result addGood(
             String name,//商品名称
             String title,//顶部文本内容
-            String description//详细描述
+            String description,//详细描述
+            BigDecimal minPrice,
+            BigDecimal maxPrice
     ){
         try{
-            int flag=goodsService.addGood(name,title,description);
+            int flag=goodsService.addGood(name,title,description,minPrice,maxPrice);
             if (flag==1){
                 return Result.build(200,"添加成功");
             }
@@ -88,7 +90,7 @@ public class GoodsController {
     //添加一个库存商品
     @RequestMapping("/addKuCun")
     public Result addKuCun(String name,String file, String shangpId,String size,
-                           String color,String stock,BigDecimal price ) {
+                           String color,Integer stock,BigDecimal price ) {
         try{
             goodsService.addKuCun(name,file,shangpId,size,color,stock,price);
             return Result.build(200,"添加成功");

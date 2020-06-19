@@ -10,12 +10,12 @@ public interface GoodsService {
 
     List<Goods> findGoodsList(Integer spuId);
 
-    int addGood(String name, String title, String description);
+    int addGood(String name, String title, String description,BigDecimal minPrice, BigDecimal maxPrice);
 
     int delGood(int spuId);
 
     int addKuCun( String name, String file, String shangpId, String size,
-                 String color, String stock, BigDecimal price);
+                 String color, Integer stock, BigDecimal price);
 
     List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId);
 

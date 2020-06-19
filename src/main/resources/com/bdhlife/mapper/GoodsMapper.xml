@@ -9,7 +9,9 @@
         name as name,
         title as title,
         state as state,
-        description as description
+        description as description,
+        min_price as minPrice,
+        max_price as maxPrice
         from
         tb_goods_shangp
         <where>
@@ -25,12 +27,16 @@
         name,
         title,
         description,
-        state
+        state,
+        min_price,
+        max_price
         )VALUES (
         #{name},
         #{title},
-        #{description}
-        ,#{state}
+        #{description},
+        #{state},
+        #{minPrice},
+        #{maxPrice}
         )
     </insert>
 
@@ -46,9 +52,25 @@
     <insert id="addKuCun" >
         insert into tb_goods_kucun
         (
-        name,images,shangp_id,stock,size,color,price
+        name
+        ,shangp_id
+        ,stock
+        ,size
+        ,color
+        ,price
+        <if test="images != null and images != '' ">
+            ,images
+        </if>
         )VALUES (
-        #{name},#{images},#{shangpId},#{stock},#{size},#{color},#{price}
+        #{name}
+        ,#{shangpId}
+        ,#{stock}
+        ,#{size}
+        ,#{color}
+        ,#{price}
+        <if test="images != null and images != '' ">
+            ,#{images}
+        </if>
         )
     </insert>
     

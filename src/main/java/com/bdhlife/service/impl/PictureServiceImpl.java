@@ -23,6 +23,9 @@ public class PictureServiceImpl implements PictureService {
     @Value("${img.path}")
     private String path;
 
+    @Value("${img.url}")
+    private String imgUrl;
+
     @Override
     public int addPicture(Integer goodsId,Integer position,Integer sort,String file) {
         Picture picture = new Picture();
@@ -47,7 +50,14 @@ public class PictureServiceImpl implements PictureService {
 
     @Override
     public List<Picture> findPictureList(Integer goodsId,Integer position) {
-        return pictureMapper.findPictureList(goodsId,position);
+        List<Picture> pictureList = pictureMapper.findPictureList(goodsId, position);
+        for (Picture picture : pictureList) {
+            String url = picture.getUrl();
+            String str = url.substring(path.length() , url.length() );
+            String newUrl=imgUrl+str;
+            picture.setUrl(newUrl);
+        }
+        return pictureList;
     }
 
     public Picture findByPid(int pid){

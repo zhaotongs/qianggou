@@ -25,18 +25,23 @@ public class GoodsServiceImpl implements GoodsService {
     @Value("${img.path}")
     private String path;
 
+    @Value("${img.url}")
+    private String imgUrl;
+
     @Override
     public List<Goods> findGoodsList(Integer spuId) {
         return goodsMapper.findGoodsList(spuId);
     }
 
     @Override
-    public int addGood(String name, String title, String description) {
+    public int addGood(String name, String title, String description,BigDecimal minPrice, BigDecimal maxPrice) {
         Goods goods = new Goods();
         goods.setName(name);
         goods.setTitle(title);
         goods.setDescription(description);
         goods.setState(1);
+        goods.setMinPrice(minPrice);
+        goods.setMaxPrice(maxPrice);
         return goodsMapper.addGood(goods);
     }
 
@@ -47,21 +52,42 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public int addKuCun( String name, String file, String shangpId, String size, String color,
-                        String stock, BigDecimal price) {
-        String[] imagesList = ImgUtil.savePic(file, path);
-        String images = imagesList[0];
-        return goodsMapper.addKuCun(name,images,shangpId,size,color,stock,price);
+                        Integer stock, BigDecimal price) {
+        KuCun kuCun = new KuCun();
+        kuCun.setName(name);
+        kuCun.setShangpId(shangpId);
+        kuCun.setSize(size);
+        kuCun.setColor(color);
+        kuCun.setStock(stock);
+        kuCun.setPrice(price);
+        if (file != null && file.length()>0){
+            String[] imagesList = ImgUtil.savePic(file, path);
+            String images = imagesList[0];
+            kuCun.setImages(images);
+            return goodsMapper.addKuCun(kuCun);
+        }
+        return goodsMapper.addKuCun(kuCun);
     }
 
     @Override
     public List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
-        return goodsMapper.queryKuCunList(color, size, skuId,shangpId);
+        List<KuCun> list = goodsMapper.queryKuCunList(color, size, skuId, shangpId);
+        for (KuCun kuCun : list) {
+            String images = kuCun.getImages();
+            String str = images.substring(path.length() , images.length() );
+            String newUrl=imgUrl+str;
+            kuCun.setImages(newUrl);
+        }
+        return list;
     }
 
     @Override
     public int delKuCun(int skuId) {
         KuCun kuCun = findKuCunById(skuId);
-
+        String images = kuCun.getImages();
+        if (images != null ){
+            ImgUtil.delFolder(images);
+        }
         return goodsMapper.delKuCun(skuId);
     }
 
