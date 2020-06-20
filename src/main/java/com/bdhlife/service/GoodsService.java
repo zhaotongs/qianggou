@@ -21,4 +21,8 @@ public interface GoodsService {
 
     int delKuCun(int skuId);
 
+    List<String> findSize(Integer shangpId);
+
+    List<String> findColor(Integer shangpId);
+
 }

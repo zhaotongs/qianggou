@@ -3,6 +3,7 @@ package com.bdhlife.controller;
 import com.bdhlife.entity.UserAccessToken;
 import com.bdhlife.entity.WeChatUser;
 import com.bdhlife.service.WeChatUserService;
+import com.bdhlife.utils.MapUtil;
 import com.bdhlife.utils.Result;
 import com.bdhlife.utils.WechatUtil;
 import org.slf4j.Logger;
@@ -20,7 +21,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 获取关注公众号之后的微信用户信息的接口，如果在微信浏览器里访问
@@ -89,7 +92,18 @@ public class WeChatUserController {
     public Result findUserByOpenId(String openId){
         try{
             WeChatUser user = weChatUserService.findUserByOpenId(openId);
-            return Result.ok(user);
+            Map<String, String> map = MapUtil.convertToMap(user);
+            String sex = user.getSex();
+            if ("1".equals(sex)){
+                map.put("sex","男");
+            }
+            if ("2".equals(sex)){
+                map.put("sex","女");
+            }
+            if ("0".equals(sex)){
+                map.put("sex","未知");
+            }
+            return Result.ok(map);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -101,7 +115,22 @@ public class WeChatUserController {
     public Result findUserList(){
         try{
             List<WeChatUser>list=weChatUserService.findUserList();
-            return Result.ok(list);
+            List<Map> l= new ArrayList<Map>();
+            for (WeChatUser weChatUser : list) {
+                Map<String, String> map = MapUtil.convertToMap(weChatUser);
+                String sex = weChatUser.getSex();
+                if ("1".equals(sex)){
+                    map.put("sex","男");
+                }
+                if ("2".equals(sex)){
+                    map.put("sex","女");
+                }
+                if ("0".equals(sex)){
+                    map.put("sex","未知");
+                }
+                l.add(map);
+            }
+            return Result.ok(l);
         }
         catch (Exception e){
             e.printStackTrace();

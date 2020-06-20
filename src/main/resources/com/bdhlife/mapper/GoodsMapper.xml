@@ -142,4 +142,24 @@
         sku_id = #{skuId}
     </select>
 
+    <select id="findSize"  resultType="String">
+        select
+        size as size
+        from
+        tb_goods_kucun
+        where
+        shangp_id = #{shangpId}
+        group by size
+    </select>
+
+    <select id="findColor"  resultType="String">
+        select
+        color as color
+        from
+        tb_goods_kucun
+        where
+        shangp_id = #{shangpId}
+        group by color
+    </select>
+
 </mapper>

@@ -72,11 +72,15 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
         List<KuCun> list = goodsMapper.queryKuCunList(color, size, skuId, shangpId);
-        for (KuCun kuCun : list) {
-            String images = kuCun.getImages();
-            String str = images.substring(path.length() , images.length() );
-            String newUrl=imgUrl+str;
-            kuCun.setImages(newUrl);
+        if (list!=null && list.size()>0){
+            for (KuCun kuCun : list) {
+                String images = kuCun.getImages();
+                if (images != null && images.length()>0 ){
+                    String str = images.substring(path.length() , images.length() );
+                    String newUrl=imgUrl+str;
+                    kuCun.setImages(newUrl);
+                }
+            }
         }
         return list;
     }
@@ -93,5 +97,15 @@ public class GoodsServiceImpl implements GoodsService {
 
     public KuCun findKuCunById(int id){
         return goodsMapper.findKuCunById(id);
+    }
+
+    @Override
+    public List<String> findSize(Integer shangpId) {
+        return goodsMapper.findSize(shangpId);
+    }
+
+    @Override
+    public List<String> findColor(Integer shangpId) {
+        return goodsMapper.findColor(shangpId);
     }
 }

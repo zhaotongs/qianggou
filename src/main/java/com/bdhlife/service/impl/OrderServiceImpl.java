@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int addOrder(Integer skuId, Integer spuId, Integer count, String phone, String address, String realName,String openId) {
+    public String addOrder(Integer skuId, Integer spuId, Integer count, String phone, String address, String realName,String openId) {
         WeChatUser user = new WeChatUser();
         user.setRealName(realName);
         user.setPhone(phone);
@@ -55,10 +55,13 @@ public class OrderServiceImpl implements OrderService {
         String orderNumber = ODDGenerator.getNumber();
         order.setOrderNumber(orderNumber);
         int flag = orderMapper.addOrder(order);
-        Integer stock = kunCun.getStock();
-        kunCun.setStock(stock-count);
-        goodsMapper.updateKunCun(kunCun);
-        return flag;
+        if (flag == 1){
+            Integer stock = kunCun.getStock();
+            kunCun.setStock(stock-count);
+            goodsMapper.updateKunCun(kunCun);
+            return order.getOrderNumber();
+        }
+        return null;
     }
 
     @Override

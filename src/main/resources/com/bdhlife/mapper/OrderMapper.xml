@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bdhlife.mapper.OrderMapper">
 
-    <insert id="addOrder">
+    <insert id="addOrder" useGeneratedKeys="true" keyProperty="oid">
         insert into tb_order
         (
         sku_id,spu_id,count,price,phone,address,real_name,state,open_id,order_number
@@ -34,6 +34,7 @@
                 and open_id = #{openId}
             </if>
         </where>
+        order by oid desc
     </select>
 
     <select id="findOrderByNumber" resultType="com.bdhlife.entity.Order">

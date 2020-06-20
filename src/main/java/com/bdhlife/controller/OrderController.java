@@ -62,9 +62,9 @@ public class OrderController {
             String openId//用户的openid
     ){
         try{
-            int flag=orderService.addOrder(skuId,spuId,count,phone,address,realName,openId);
-            if (flag==1){
-                return Result.build(200,"添加成功");
+            String orderNumber=orderService.addOrder(skuId,spuId,count,phone,address,realName,openId);
+            if (orderNumber != null){
+                return Result.build(200,"添加成功",orderNumber);
             }
             return Result.build(500,"添加失败");
         }catch (Exception e){

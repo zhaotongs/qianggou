@@ -30,4 +30,8 @@ public interface GoodsMapper {
 
     KuCun findKuCunById(int skuId);
 
+    List<String> findSize(Integer shangpId);
+
+    List<String> findColor(Integer shangpId);
+
 }

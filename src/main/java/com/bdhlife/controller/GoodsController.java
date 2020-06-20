@@ -8,11 +8,14 @@ import com.bdhlife.service.PictureService;
 import com.bdhlife.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -119,6 +122,23 @@ public class GoodsController {
             return Result.build(500, "未知异常");
         }
 
+    }
+
+    //根据shangpId查询该商品下的所有规格
+    @PostMapping("/findSpec")
+    public Result findSpec(Integer shangpId){
+        try{
+            List<String> size=goodsService.findSize(shangpId);
+            List<String> color=goodsService.findColor(shangpId);
+            Map<String,List>map=new HashMap<>();
+            map.put("size",size);
+            map.put("color",color);
+            return Result.build(200,"查询成功",map);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return Result.build(500, "未知异常");
+        }
     }
 
 }

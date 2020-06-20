@@ -10,7 +10,7 @@ public interface OrderService {
 
     WeChatUser findUserByOpenId(String openId);
 
-    int addOrder(Integer skuId, Integer spuId, Integer count, String phone, String address, String realName,String openId);
+    String addOrder(Integer skuId, Integer spuId, Integer count, String phone, String address, String realName,String openId);
 
     List<Order> findOrderList(Integer spuId, String openId);
 
