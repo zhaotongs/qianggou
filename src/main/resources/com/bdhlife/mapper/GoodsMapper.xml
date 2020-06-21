@@ -19,6 +19,7 @@
                 and spu_id = #{spuId}
             </if>
         </where>
+        order by spu_id desc
     </select>
 
     <insert id="addGood">
@@ -100,6 +101,12 @@
                     and shangp_id = #{shangpId}
                 </if>
             </where>
+        <if test="groupColor">
+            group by color
+        </if>
+        <if test="groupSize">
+            group by size
+        </if>
     </select>
 
     <delete id="delKuCun">

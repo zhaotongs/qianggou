@@ -14,22 +14,6 @@ public class WXPay {
     private String notifyUrl;
     private WXPayRequest wxPayRequest;
 
-    /*
-    public WXPay(final WXPayConfig config, final String notifyUrl, final boolean autoReport, final boolean useSandbox) throws Exception {
-        this.config = config;
-        this.notifyUrl = notifyUrl;
-        this.autoReport = autoReport;
-        this.useSandbox = useSandbox;
-        if (useSandbox) {
-            this.signType = SignType.MD5; // 沙箱环境
-        }
-        else {
-            this.signType = SignType.MD5;// 将这里的加密方式修改为SignType.MD5, 保持跟前端吊起微信加密方式保持一致
-        }
-        this.wxPayRequest = new WXPayRequest(config);
-    }
-    */
-
     public WXPay(final WXPayConfig config) throws Exception {
         this(config, null, true, false);
     }
@@ -60,7 +44,8 @@ public class WXPay {
             this.signType = SignType.MD5; // 沙箱环境
         }
         else {
-            this.signType = SignType.HMACSHA256;
+            //this.signType = SignType.HMACSHA256;
+            this.signType = SignType.MD5;// 将这里的加密方式修改为SignType.MD5, 保持跟前端吊起微信加密方式保持一致
         }
         this.wxPayRequest = new WXPayRequest(config);
     }

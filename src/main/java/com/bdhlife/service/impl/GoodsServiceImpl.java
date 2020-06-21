@@ -70,8 +70,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
-        List<KuCun> list = goodsMapper.queryKuCunList(color, size, skuId, shangpId);
+    public List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId,boolean groupColor,boolean groupSize) {
+        List<KuCun> list = goodsMapper.queryKuCunList(color, size, skuId, shangpId,groupColor,groupSize);
         if (list!=null && list.size()>0){
             for (KuCun kuCun : list) {
                 String images = kuCun.getImages();

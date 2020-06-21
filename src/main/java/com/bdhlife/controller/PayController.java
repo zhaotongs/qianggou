@@ -7,6 +7,9 @@ import com.bdhlife.utils.IpUtils;
 
 import com.bdhlife.utils.wxpay.WXPay;
 import com.bdhlife.utils.wxpay.WXPayUtil;
+import com.sun.jmx.snmp.Timestamp;
+import org.apache.commons.net.ntp.TimeStamp;
+import org.bouncycastle.jce.provider.JCEMac;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,8 +83,11 @@ public class PayController {
             String packages = "prepay_id=" + prepay_id;
             Map<String, String> wxPayMap = new HashMap<String, String>();
             wxPayMap.put("appId", iWxPayConfig.getAppID());
-            /*wxPayMap.put("timeStamp", String.valueOf(Utility.getCurrentTimeStamp()));
-            wxPayMap.put("nonceStr", Utility.generateUUID());*/
+            Date date = new Date();
+            long time = date.getTime() / 1000;
+            result.put("timeStamp",String.valueOf(time));
+            String nonceStr = WXPayUtil.generateNonceStr();
+            result.put("nonceStr",nonceStr);
             wxPayMap.put("package", packages);
             wxPayMap.put("signType", "MD5");
             // 加密串中包括 appId timeStamp nonceStr package signType 5个参数, 通过sdk WXPayUtil类加密, 注意, 此处使用  MD5加密  方式
@@ -88,7 +95,7 @@ public class PayController {
             // ******************************************
             //  返回给前端调起微信支付的必要参数
             // ******************************************
-            result.put("prepay_id", prepay_id);
+
             result.put("paySign", sign);
             result.putAll(wxPayMap);
             return result;

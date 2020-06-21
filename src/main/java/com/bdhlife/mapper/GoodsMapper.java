@@ -19,7 +19,8 @@ public interface GoodsMapper {
 
     int delGood(int spuId);
 
-    List<KuCun> queryKuCunList(@Param("color")String color, @Param("size")String size,@Param("skuId")Integer skuId, @Param("shangpId")Integer shangpId);
+    List<KuCun> queryKuCunList(@Param("color")String color, @Param("size")String size,@Param("skuId")Integer skuId,
+                               @Param("shangpId")Integer shangpId,@Param("groupColor")boolean groupColor,@Param("groupSize")boolean groupSize);
 
     int addKuCun(KuCun kuCun);
 

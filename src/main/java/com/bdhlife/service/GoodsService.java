@@ -17,12 +17,15 @@ public interface GoodsService {
     int addKuCun( String name, String file, String shangpId, String size,
                  String color, Integer stock, BigDecimal price);
 
-    List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId);
+    List<KuCun> queryKuCunList(String color, String size, Integer skuId,Integer shangpId,boolean groupColor,boolean groupSize);
 
     int delKuCun(int skuId);
 
     List<String> findSize(Integer shangpId);
 
     List<String> findColor(Integer shangpId);
+
+
+
 
 }

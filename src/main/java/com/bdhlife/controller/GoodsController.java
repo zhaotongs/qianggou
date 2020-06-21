@@ -7,10 +7,7 @@ import com.bdhlife.service.GoodsService;
 import com.bdhlife.service.PictureService;
 import com.bdhlife.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -79,9 +76,10 @@ public class GoodsController {
 
     //条件查询库存商品
     @RequestMapping("/queryKuCun")
-    public Result queryKuCunList(String color, String size, Integer skuId,Integer shangpId) {
+    public Result queryKuCunList(String color, String size, Integer skuId,Integer shangpId,
+                                 @RequestParam(defaultValue="false") boolean groupColor,@RequestParam(defaultValue="false")boolean groupSize) {
         try{
-            List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId,shangpId);
+            List<KuCun> kuCuns = goodsService.queryKuCunList(color, size, skuId,shangpId,groupColor,groupSize);
             return Result.build(200, "查询成功", kuCuns);
         }
         catch (Exception e){
