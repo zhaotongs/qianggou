@@ -6,6 +6,7 @@ import com.bdhlife.service.OrderService;
 import com.bdhlife.utils.IpUtils;
 
 import com.bdhlife.utils.wxpay.WXPay;
+import com.bdhlife.utils.wxpay.WXPayConstants;
 import com.bdhlife.utils.wxpay.WXPayUtil;
 import com.sun.jmx.snmp.Timestamp;
 import org.apache.commons.net.ntp.TimeStamp;
@@ -85,18 +86,19 @@ public class PayController {
             wxPayMap.put("appId", iWxPayConfig.getAppID());
             Date date = new Date();
             long time = date.getTime() / 1000;
-            result.put("timeStamp",String.valueOf(time));
+            wxPayMap.put("timeStamp",String.valueOf(time));
             String nonceStr = WXPayUtil.generateNonceStr();
-            result.put("nonceStr",nonceStr);
+            wxPayMap.put("nonceStr",nonceStr);
             wxPayMap.put("package", packages);
             wxPayMap.put("signType", "MD5");
             // 加密串中包括 appId timeStamp nonceStr package signType 5个参数, 通过sdk WXPayUtil类加密, 注意, 此处使用  MD5加密  方式
-            String sign = WXPayUtil.generateSignature(wxPayMap, iWxPayConfig.getKey());
+            String sign = WXPayUtil.generateSignature(wxPayMap, iWxPayConfig.getKey(), WXPayConstants.SignType.MD5);
             // ******************************************
             //  返回给前端调起微信支付的必要参数
             // ******************************************
-
-            result.put("paySign", sign);
+            wxPayMap.put("paySign", sign);
+            boolean flag = WXPayUtil.isSignatureValid(wxPayMap, iWxPayConfig.getKey(),WXPayConstants.SignType.MD5);
+            System.out.println(flag);
             result.putAll(wxPayMap);
             return result;
         } catch (Exception e) {
