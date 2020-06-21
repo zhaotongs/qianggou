@@ -96,7 +96,7 @@ public class PayController {
             // ******************************************
             //  返回给前端调起微信支付的必要参数
             // ******************************************
-            wxPayMap.put("paySign", sign);
+            wxPayMap.put("sign", sign);
             boolean flag = WXPayUtil.isSignatureValid(wxPayMap, iWxPayConfig.getKey(),WXPayConstants.SignType.MD5);
             System.out.println(flag);
             result.putAll(wxPayMap);
